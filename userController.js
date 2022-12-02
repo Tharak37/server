@@ -9,7 +9,7 @@ const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 const url = 'mongodb+srv://admin:admin@ahs.tkmkvqk.mongodb.net/ahs';
 // Use the connect method to create a connection w/ the database
-MongoClient.connect(url, (err, client) => {
+MongoClient.connect((url, {useUnifiedTopology: true}), (err, client) => {
     if (err) {
         throw err;
         return;
