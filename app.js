@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
 // console.log(users, orders);
 
 app.listen(PORT, () => {
-   console.log('server port running in: ${PORT}');
+   console.log(`server port running in: ${PORT}`);
 });
 
 
