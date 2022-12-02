@@ -6,6 +6,7 @@
 const orders = require('./orderController')
 const users = require('./userController')
 const express = require('express');
+const PORT = process.env.PORT || 3030;
 // const db = require('./db');
 
 var app = express();
@@ -35,8 +36,8 @@ app.get("/", (req, res) => {
 // console.log(__dirname, __filename);
 // console.log(users, orders);
 
-app.listen(3000, () => {
-   console.log('server port running in 3000');
+app.listen(PORT, () => {
+   console.log('server port running in: ${PORT}');
 });
 
 
