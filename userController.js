@@ -9,6 +9,9 @@ const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 const url = 'mongodb+srv://admin:admin@ahs.tkmkvqk.mongodb.net/ahs';
 // Use the connect method to create a connection w/ the database
+try {
+    //  Block of code to try
+    // Use the connect method to create a connection w/ the database
 MongoClient.connect((url, {useUnifiedTopology: true}), (err, client) => {
     if (err) {
         throw err;
@@ -20,6 +23,12 @@ MongoClient.connect((url, {useUnifiedTopology: true}), (err, client) => {
     userCollection = db.collection('users');
 
 });
+
+  }
+  catch(e) {
+    console.log('error', e)
+    //  Block of code to handle errors
+  }
 
 router.get("/", (req, res) => {
     userCollection.find().toArray((err, list) => {

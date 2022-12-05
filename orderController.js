@@ -10,7 +10,9 @@ const orders = mongoose.model('Orders', orderSchema);
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 const url = 'mongodb+srv://admin:admin@ahs.tkmkvqk.mongodb.net/ahs';
-// Use the connect method to create a connection w/ the database
+try {
+    //  Block of code to try
+    // Use the connect method to create a connection w/ the database
 MongoClient.connect(url, (err, client) => {
     if (err) {
         throw err;
@@ -22,6 +24,12 @@ MongoClient.connect(url, (err, client) => {
     orderCollection = db.collection('orders');
 
 });
+  }
+  catch(e) {
+    //  Block of code to handle errors
+    console.log('err -->', e);
+  }
+
 
 router.get("/", (req, res) => {
     // insertDummy();
