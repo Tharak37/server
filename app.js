@@ -15,8 +15,8 @@ var bodyParser = require('body-parser')
 // var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var app = express();
-app.use(express.bodyParser());
-app.use(bodyParser.json());
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}));
 app.use(cors());    
 app.use(cookieParser());
 app.use("/orders", orders)
