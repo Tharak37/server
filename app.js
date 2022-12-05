@@ -9,8 +9,14 @@ const express = require('express');
 const PORT = process.env.PORT || 3030;
 // const db = require('./db');
 
-var app = express();
+var bodyParser = require('body-parser')
+// create application/json parser
+var jsonParser = bodyParser.json()
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+var app = express();
+app.use(express.bodyParser());
 app.use("/orders", orders)
 app.use("/users", users)
 
